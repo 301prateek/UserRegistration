@@ -61,12 +61,35 @@ public class UserRegistration{
 			validateEmail();
 		}
 	}
+
+	public void validatePhoneNumber() {
+		System.out.println("Enter Phone Number : ");
+		Scanner scanner = new Scanner(System.in);
+		String phoneNumber = scanner.nextLine();
+
+		String expression = "^[+]{1}[0-9]{2,3}[ ][0-9]{10}";
+		int invalid = 0;
+
+		if(phoneNumber.matches(expression)) {
+			System.out.println("Accepted Valid Phone Number");
+		}
+		else {
+			System.out.println("Invalid Phone Number");
+			invalid = 1;
+		}
+		if(invalid == 1) {
+			validatePhoneNumber();
+		}
+
+	}
+
 	public static void main(String[] args){
 
 		UserRegistration uservalidation = new UserRegistration();
 		uservalidation.validateFirstName();
 		uservalidation.validateLastName();
 		uservalidation.validateEmail();
+		uservalidation.validatePhoneNumber();
 
 	}
 }
