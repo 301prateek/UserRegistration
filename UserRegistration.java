@@ -83,6 +83,27 @@ public class UserRegistration{
 
 	}
 
+	public void validatePassword() {
+		System.out.println("Rules : \n 1) Password should contain minimum 8 characters.");
+
+		Scanner scanner = new Scanner(System.in);
+		String password = scanner.nextLine();
+
+		String expression = "[A-Za-z]{8,}";
+		int invalid = 0;
+
+		if(password.matches(expression)) {
+			System.out.println("Accepted Password");
+		}
+		else {
+			System.out.println("Follow the Rules for Password");
+			invalid = 1;
+		}
+		if(invalid == 1) {
+			validatePassword();
+		}
+	}
+
 	public static void main(String[] args){
 
 		UserRegistration uservalidation = new UserRegistration();
@@ -90,6 +111,7 @@ public class UserRegistration{
 		uservalidation.validateLastName();
 		uservalidation.validateEmail();
 		uservalidation.validatePhoneNumber();
+		uservalidation.validatePassword();
 
 	}
 }
