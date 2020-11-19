@@ -42,11 +42,31 @@ public class UserRegistration{
 		}
 	}
 
+	public void validateEmail() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Your Valid Email : ");
+		String email = scanner.nextLine();
+
+		String expression = "^[0-9a-zA-Z]+([.])?([-_\\+])?([0-9A-Za-z])*[@]{1}([0-9A-Za-z])+[.]{1}[a-z)]+[.]*[a-z]*$";
+		int invalid = 0;
+
+		if(email.matches(expression)) {
+			System.out.println("Accepted Valid Email Address");
+		}
+		else {
+			System.out.println("Enter valid email");
+			invalid = 1;
+		}
+		if(invalid == 1) {
+			validateEmail();
+		}
+	}
 	public static void main(String[] args){
 
 		UserRegistration uservalidation = new UserRegistration();
 		uservalidation.validateFirstName();
 		uservalidation.validateLastName();
+		uservalidation.validateEmail();
 
 	}
 }
