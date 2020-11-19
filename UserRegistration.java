@@ -84,12 +84,12 @@ public class UserRegistration{
 	}
 
 	public void validatePassword() {
-		System.out.println("Rules : \n 1) Password should contain minimum 8 characters. \n 2) Password shoud contain atleast 1 upper case character.");
+		System.out.println("Rules : \n 1) Password should contain minimum 8 characters. \n 2) Password should contain atleast 1 upper case character. \n 3) Password should contain 1 numeric number.");
 
 		Scanner scanner = new Scanner(System.in);
 		String password = scanner.nextLine();
 
-		String expression = "[a-z]{7,}[A-Z]{1,}";
+		String expression = "[a-z]{7,}[A-Z]{1,}[0-9]{1,}";
 		int invalid = 0;
 
 		if(password.matches(expression)) {
